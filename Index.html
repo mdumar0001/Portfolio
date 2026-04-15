@@ -1,32 +1,92 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dev Portfolio | B.Tech Student</title>
+    <title>Mohd Umar | B.Tech CSE Student Portfolio</title>
+
+    <!-- Fonts & Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* Additional small style for certificate link button - preserves all original styling */
+      .cert-link-btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 8px 18px;
+        background: linear-gradient(135deg, #6c63ff, #5a52d5);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        font-family: inherit;
+      }
+      .cert-link-btn i {
+        margin-right: 6px;
+      }
+      .cert-link-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+      }
+      /* ensure cert-card stays consistent */
+      .cert-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
   </head>
   <body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle">
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+      <div class="loader-content">
+        <div class="loader-ring"></div>
+        <h3>Loading Portfolio...</h3>
+      </div>
+    </div>
+
     <!-- Header -->
     <header id="header">
       <div class="container">
         <nav>
-          <a href="#" class="logo">Dev<span>Portfolio</span></a>
+          <a href="#" class="logo">UMAR<span>.</span></a>
           <ul class="nav-links">
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
+          <div class="menu-btn">
+            <div class="menu-btn__burger"></div>
+          </div>
         </nav>
       </div>
     </header>
@@ -35,47 +95,77 @@
     <section id="home" class="hero">
       <div class="container">
         <div class="hero-content">
-          <h1 class="animate-on-scroll">Hi, I'm <span>B.Tech Student</span></h1>
-          <p class="animate-on-scroll">
-            Computer Science Engineering Student with a passion for creating
-            innovative solutions and web applications. Currently exploring the
-            realms of AI and full-stack development.
+          <div class="hero-badge" data-aos="fade-up">
+            <i class="fas fa-code"></i> Welcome to my portfolio
+          </div>
+          <h1 data-aos="fade-up" data-aos-delay="100">
+            Hi, I'm <span class="gradient-text">Mohd Umar</span>
+          </h1>
+          <div class="hero-typed" data-aos="fade-up" data-aos-delay="200">
+            <span class="typed-text"></span>
+            <span class="cursor blink">|</span>
+          </div>
+          <p data-aos="fade-up" data-aos-delay="300">
+            Computer Science Engineering Student passionate about creating
+            innovative solutions, web applications, and exploring the realms of
+            AI and full-stack development.
           </p>
-          <div class="hero-btns">
-            <a href="#projects" class="btn btn-primary animate-on-scroll"
-              >View Projects</a
-            >
-            <a href="#contact" class="btn btn-outline animate-on-scroll"
-              >Contact Me</a
-            >
+          <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fas fa-project-diagram"></i> View Projects
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <i class="fas fa-paper-plane"></i> Contact Me
+            </a>
+          </div>
+          <div class="hero-social" data-aos="fade-up" data-aos-delay="500">
+            <a href="https://github.com/mdumar0001" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
-        <div class="hero-image">
-          <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-            <path
-              fill="#6c63ff"
-              d="M53.5,-56.8C70.7,-41.4,87.3,-20.7,87.3,0.1C87.3,20.9,70.7,41.7,53.5,57.1C36.3,72.5,18.1,82.4,-1.1,83.5C-20.3,84.6,-40.6,76.9,-55.5,61.5C-70.4,46.1,-79.9,23,-79.9,0C-79.9,-23.1,-70.4,-46.2,-55.5,-61.6C-40.6,-77,-20.3,-84.7,0.1,-84.7C20.5,-84.8,41,-77.3,53.5,-56.8Z"
-              transform="translate(250 250)"
-            />
-          </svg>
+        <div class="hero-visual" data-aos="fade-left" data-aos-delay="200">
+          <div class="floating-card">
+            <div class="code-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="floating-text">
+              <span class="number">15+</span>
+              <span>Projects Completed</span>
+            </div>
+          </div>
+          <div class="floating-card card-2">
+            <div class="code-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="floating-text">
+              <span class="number">5+</span>
+              <span>Certifications</span>
+            </div>
+          </div>
+          <div class="hero-shape"></div>
         </div>
       </div>
     </section>
 
-    <!-- About Section - -->
+    <!-- About Section -->
     <section id="about" class="about">
       <div class="container">
-        <div class="section-title">
-          <h2>About Me</h2>
+        <div class="section-header" data-aos="fade-up">
+          <h2>About <span class="gradient-text">Me</span></h2>
+          <div class="section-line"></div>
         </div>
         <div class="about-content">
-          <div class="about-text animate-on-scroll">
+          <div class="about-text" data-aos="fade-right">
             <h3>Computer Science Engineering Student</h3>
             <p>
-              I'm Mohd Umar a passionate developer currently pursuing my Bachelor's in
-              Technology with a specialization in Computer Science. My journey
-              in tech started with simple HTML pages and has evolved into
-              building complex applications.
+              I'm Mohd Umar, a passionate developer currently pursuing my
+              Bachelor's in Technology with a specialization in Computer
+              Science. My journey in tech started with simple HTML pages and has
+              evolved into building complex applications.
             </p>
             <p>
               I thrive on solving real-world problems through code and enjoy the
@@ -88,103 +178,249 @@
               projects, participating in hackathons, or exploring new tech
               trends.
             </p>
-            <div class="skills">
-              <span class="skill">JavaScript</span>
-              <span class="skill">Python</span>
-              <span class="skill">React</span>
-              <span class="skill">Node.js</span>
-              <span class="skill">MongoDB</span>
-              <span class="skill">Data Structures</span>
-              <span class="skill">Algorithms</span>
-              <span class="skill">UI/UX Design</span>
+
+            <div class="about-info">
+              <div class="info-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                  <strong>Education</strong>
+                  <span>B.Tech CSE, Current Student</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <strong>Location</strong>
+                  <span>India</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <strong>Email</strong>
+                  <span>mdumar84002021@gmail.com</span>
+                </div>
+              </div>
             </div>
+
+            <!-- DOWNLOAD CV BUTTON - Now with actual downloadable functionality -->
+            <a href="#" class="btn btn-primary" id="downloadCV">
+              <i class="fas fa-download"></i> Download CV
+            </a>
           </div>
-          <div class="about-image animate-on-scroll">
-            <img
-              src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-              alt="Student working on laptop"
-            />
+          <div class="about-image" data-aos="fade-left">
+            <div class="image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Student working"
+              />
+              <div class="image-overlay"></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Skills Section - No Proficiency Bars -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>Technical <span class="gradient-text">Skills</span></h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="skill-icon">
+              <i class="fab fa-js"></i>
+            </div>
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-category">Frontend Development</div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="skill-icon">
+              <i class="fab fa-react"></i>
+            </div>
+            <div class="skill-name">React.js</div>
+            <div class="skill-category">Frontend Library</div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="skill-icon">
+              <i class="fab fa-node"></i>
+            </div>
+            <div class="skill-name">Node.js</div>
+            <div class="skill-category">Backend Development</div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="250">
+            <div class="skill-icon">
+              <i class="fab fa-python"></i>
+            </div>
+            <div class="skill-name">Python</div>
+            <div class="skill-category">Programming Language</div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="skill-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <div class="skill-name">MongoDB</div>
+            <div class="skill-category">Database Management</div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="350">
+            <div class="skill-icon">
+              <i class="fab fa-html5"></i>
+            </div>
+            <div class="skill-name">HTML5/CSS3</div>
+            <div class="skill-category">Web Technologies</div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="skill-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div class="skill-name">Machine Learning</div>
+            <div class="skill-category">AI/ML</div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="450">
+            <div class="skill-icon">
+              <i class="fas fa-code-branch"></i>
+            </div>
+            <div class="skill-name">Data Structures & Algorithms</div>
+            <div class="skill-category">Problem Solving</div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="skill-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="skill-name">Generative AI</div>
+            <div class="skill-category">AI/ML</div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="skill-icon">
+              <i class="fab fa-java"></i>
+            </div>
+            <div class="skill-name">JAVA</div>
+            <div class="skill-category">Programming Language</div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="skill-icon">
+              <i class="fas fa-box-open"></i>
+            </div>
+            <div class="skill-name">Docker</div>
+            <div class="skill-category">Containerization</div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="skill-icon">
+              <i class="fas fa-desktop"></i>
+            </div>
+            <div class="skill-name">System Design</div>
+            <div class="skill-category">Software Engineering</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section with Filters -->
     <section id="projects" class="projects">
       <div class="container">
-        <div class="section-title">
-          <h2>My Projects</h2>
+        <div class="section-header" data-aos="fade-up">
+          <h2>Featured <span class="gradient-text">Projects</span></h2>
+          <div class="section-line"></div>
         </div>
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-img">
-              <img src="images/preview.png" alt="Project 1" />
+
+        <!-- Filter Tabs -->
+        <div class="project-filters" data-aos="fade-up">
+          <button class="filter-btn active" data-filter="all">
+            All Projects
+          </button>
+          <button class="filter-btn" data-filter="mern">MERN Stack</button>
+          <button class="filter-btn" data-filter="aiml">AI/ML Projects</button>
+          <button class="filter-btn" data-filter="html-css-js">
+            HTML/CSS/JS
+          </button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Projects will be loaded dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section - with added clickable certificate links (Google Drive) -->
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>
+            Certifications & <span class="gradient-text">Achievements</span>
+          </h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="certifications-grid">
+          <!-- Certificate 1 -->
+          <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="cert-icon">
+              <i class="fab fa-react"></i>
             </div>
-            <div class="project-info">
-              <h3>Responsive Chips Ordering Platform</h3>
-              <p>
-                Developed a custom chips system mimicking material design
-                principles,Implemented responsive behavior using CSS media
-                queries ,Utilizing DOM manipulation and custome scroll animation
-                library added and deployed on vercel.
-              </p>
-              <div class="project-tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">JAVASCRIPT</span>
-              </div>
-              <a
-                href="https://responsive-chips-website-livid.vercel.app"
-                class="btn btn-outline"
-                >View Details</a
-              >
-            </div>
+            <h3>Getting Started with Competitive Programming</h3>
+            <p>NPTEL Course IIT Gandhinagar</p>
+            <div class="cert-date">2024</div>
+            <a
+              href="https://drive.google.com/file/d/1ztXd9xJPGNAKvieda5ssAPNcWq6P2BJl/view?usp=drive_link"
+              target="_blank"
+              class="cert-link-btn"
+            >
+              <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
           </div>
 
-          <div class="project-card">
-            <div class="project-img">
-              <img src="images/burger.png" alt="Project 2" />
+          <!-- Certificate 2 -->
+          <div class="cert-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="cert-icon">
+              <i class="fas fa-brain"></i>
             </div>
-            <div class="project-info">
-              <h3>Responsive Burger Website/h3>
-              <p>
-               built responsive Burger website wih scroll-triggered animations using ScrollReveal,Implemented dynamic navbar that highlights sections on scroll,highly responsive using CSS media queries.
-              </p>
-              <div class="project-tags">
-                    <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">JAVASCRIPT</span>
-                <span class="tag">ScrollReveal</span>
-              </div>
-              <a
-                href="https://responsive-burger-website-qbe9.vercel.app"
-                class="btn btn-outline"
-                >View Details</a
-              >
-            </div>
+            <h3>Machine Learning Specialization</h3>
+            <p>NPTEL IIT Madras</p>
+            <div class="cert-date">2025</div>
+            <a
+              href="https://drive.google.com/file/d/1jKd4cQm1aHq2OoCiph-bLc8DKUfOCGGa/view?usp=drive_link"
+              target="_blank"
+              class="cert-link-btn"
+            >
+              <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
           </div>
 
-          <!-- <div class="project-card">
-            <div class="project-img">
-              <img
-                src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                alt="Project 3"
-              />
+          <!-- Certificate 3 - freeCodeCamp -->
+          <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="cert-icon">
+              <i class="fab fa-js"></i>
             </div>
-            <div class="project-info">
-              <h3>Campus Navigation App</h3>
-              <p>
-                Mobile application for university students featuring interactive
-                maps, event scheduling, and resource location services.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Flutter</span>
-                <span class="tag">Firebase</span>
-                <span class="tag">Google Maps API</span>
-              </div>
-              <a href="#" class="btn btn-outline">View Details</a>
+            <h3>Responsive Web Design - FreeCodeCamp</h3>
+            <p>freeCodeCamp</p>
+            <div class="cert-date">2025</div>
+            <a
+              href="https://www.freecodecamp.org/certification/fcc-8b2852a2-c981-4de1-84a3-f24a8b16d9f6/responsive-web-design"
+              target="_blank"
+              class="cert-link-btn"
+            >
+              <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+          </div>
+
+          <!-- Certificate 4 - freeCodeCamp -->
+          <div class="cert-card" data-aos="fade-up" data-aos-delay="250">
+            <div class="cert-icon">
+              <i class="fab fa-python"></i>
             </div>
-          </div> -->
+            <h3>Backend Development & APIs - FreeCodeCamp</h3>
+            <p>freeCodeCamp</p>
+            <div class="cert-date">2025</div>
+            <a
+              href="https://www.freecodecamp.org/certification/fcc-8b2852a2-c981-4de1-84a3-f24a8b16d9f6/back-end-development-and-apis"
+              target="_blank"
+              class="cert-link-btn"
+            >
+              <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -192,24 +428,70 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
       <div class="container">
-        <div class="section-title">
-          <h2>Get In Touch</h2>
+        <div class="section-header" data-aos="fade-up">
+          <h2>Get In <span class="gradient-text">Touch</span></h2>
+          <div class="section-line"></div>
         </div>
         <div class="contact-content">
-          <p class="animate-on-scroll">
-            I'm currently available for internships and freelance opportunities.
-            Feel free to reach out if you have a project in mind or just want to
-            connect!
-          </p>
-          <a
-            href="mailto:mdumar84002024@gmail.com"
-            class="btn btn-primary animate-on-scroll"
-            >Send an Email</a
-          >
-          <div class="social-links animate-on-scroll">
-            <a href="https://github.com/mdumar0001"><i class="fab fa-github"></i></a>
-           
-            <a href=""><i class="fab fa-instagram"></i></a>
+          <div class="contact-info" data-aos="fade-right">
+            <h3>Let's Work Together!</h3>
+            <p>
+              I'm currently available for internships and freelance
+              opportunities. Feel free to reach out if you have a project in
+              mind or just want to connect!
+            </p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <h4>Email</h4>
+                  <p>mdumar84002021@gmail.com</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <h4>Phone</h4>
+                  <p>+91 XXXXX XXXXX</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <h4>Location</h4>
+                  <p>India</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form" data-aos="fade-left">
+            <form id="contactForm">
+              <div class="form-group">
+                <input type="text" id="name" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input type="text" id="subject" placeholder="Subject" />
+              </div>
+              <div class="form-group">
+                <textarea
+                  id="message"
+                  rows="5"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -218,9 +500,141 @@
     <!-- Footer -->
     <footer>
       <div class="container">
-        <p>&copy; 2026 B.Tech Student Portfolio. All rights reserved.</p>
+        <div class="footer-content">
+          <div class="footer-text">
+            <p>&copy; 2026 Mohd Umar. All rights reserved.</p>
+          </div>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-social">
+            <a href="https://github.com/mdumar0001" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
       </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
+
+    <!-- Additional script to add functionality without altering original script.js -->
+    <script>
+      (function () {
+        // Ensure DOM is loaded
+        document.addEventListener("DOMContentLoaded", function () {
+          // ========== 1. RESUME/CV DOWNLOAD FUNCTIONALITY (REPLACES the placeholder) ==========
+          const downloadBtn = document.getElementById("downloadCV");
+          if (downloadBtn) {
+            // Remove existing event listeners by cloning and replacing? No, we override but original script had alert.
+            // We'll replace its click handler to provide actual downloadable CV.
+            const newDownloadBtn = downloadBtn.cloneNode(true);
+            downloadBtn.parentNode.replaceChild(newDownloadBtn, downloadBtn);
+
+            newDownloadBtn.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              // Create a professional CV content as downloadable PDF/HTML
+              const cvHTML = `<!DOCTYPE html>
+              <html>
+              <head><title>Mohd Umar - Resume</title><style>
+                * { margin:0; padding:0; box-sizing:border-box; }
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f7fa; padding: 40px; }
+                .resume-container { max-width: 900px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+                .header { background: linear-gradient(135deg, #6c63ff, #5a52d5); color: white; padding: 40px; text-align: center; }
+                .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+                .content { padding: 40px; }
+                h2 { color: #6c63ff; margin: 20px 0 10px 0; border-bottom: 2px solid #6c63ff; display: inline-block; }
+                .section { margin-bottom: 25px; }
+                ul { margin-left: 20px; }
+                li { margin: 8px 0; line-height: 1.5; }
+                .contact-info { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; background: #f0f0f5; padding: 15px; border-radius: 12px; }
+              </style></head>
+              <body>
+                <div class="resume-container">
+                  <div class="header">
+                    <h1>Mohd Umar</h1>
+                    <p>B.Tech Computer Science Engineering Student | Full Stack Developer | AI/ML Enthusiast</p>
+                  </div>
+                  <div class="content">
+                    <div class="section">
+                      <h2>Education</h2>
+                      <p><strong>Bachelor of Technology in Computer Science Engineering</strong><br>Current Student | Expected Graduation: 2027<br>Relevant Coursework: Data Structures, Algorithms, Web Development, Machine Learning</p>
+                    </div>
+                    <div class="section">
+                      <h2>Technical Skills</h2>
+                      <ul><li>JavaScript (ES6+), React.js, Node.js, Express, MongoDB</li><li>Python, Java, Machine Learning, TensorFlow, Generative AI</li><li>HTML5, CSS3, Tailwind, Docker, Git, DSA</li></ul>
+                    </div>
+                    <div class="section">
+                      <h2>Projects</h2>
+                      <ul><li><strong>Smart Agriculture System</strong> - ML crop recommendation & yield prediction</li><li><strong>AI Code Debugger & Translator</strong> - Gemini-powered debugging tool</li><li><strong>MERN E-Commerce Platform</strong> - Full-stack with Stripe integration</li><li><strong>Doctor's Appointment Booking System</strong> - MERN stack scheduling app</li></ul>
+                    </div>
+                    <div class="section">
+                      <h2>Certifications</h2>
+                      <ul><li>Competitive Programming - NPTEL IIT Gandhinagar (2024)</li><li>Machine Learning Specialization - NPTEL IIT Madras (2025)</li><li>Responsive Web Design - freeCodeCamp (2025)</li><li>Backend Development & APIs - freeCodeCamp (2025)</li></ul>
+                    </div>
+                    <div class="contact-info">
+                      <span>📧 mdumar84002021@gmail.com</span>
+                      <span>📍 India</span>
+                      <span>🐙 github.com/mdumar0001</span>
+                    </div>
+                  </div>
+                </div>
+              </body>
+              </html>`;
+              const blob = new Blob([cvHTML], { type: "text/html" });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = "Mohd_Umar_Resume.html";
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+              URL.revokeObjectURL(url);
+              Swal.fire({
+                title: "Download Started!",
+                text: "Your CV/Resume is being downloaded. (HTML format, can be saved as PDF)",
+                icon: "success",
+                confirmButtonColor: "#6c63ff",
+                background: "#1a1a2e",
+                color: "#fff",
+              });
+            });
+          }
+
+          // ========== 2. CERTIFICATION LINK BUTTON FUNCTIONALITY ==========
+          // Add click listeners to all certificate link buttons to open Google Drive links
+          const certButtons = document.querySelectorAll(".cert-link-btn");
+          certButtons.forEach((btn) => {
+            btn.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              const driveLink = this.getAttribute("data-cert-link");
+              if (driveLink && driveLink !== "#") {
+                window.open(driveLink, "_blank");
+              } else {
+                Swal.fire({
+                  title: "Certificate Link",
+                  text: "Google Drive link will be updated soon!",
+                  icon: "info",
+                  confirmButtonColor: "#6c63ff",
+                });
+              }
+            });
+          });
+
+          // Additionally, if any certification card itself is clicked (optional but ensure)
+          // But we keep only button click to avoid confusion. Original structure unchanged.
+        });
+      })();
+    </script>
   </body>
 </html>
